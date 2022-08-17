@@ -1,1 +1,1 @@
-# legacy-wallet-server
+# wallet-server
