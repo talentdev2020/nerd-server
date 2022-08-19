@@ -1,8 +1,8 @@
 version: '3.4'
 
 services:
-  dockerdemo:
-    image: walletserver-debug
+  walletserver:
+    image: walletserver
     build:
       context: .
       dockerfile: ./Dockerfile
