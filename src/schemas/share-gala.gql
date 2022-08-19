@@ -1,0 +1,52 @@
+type ReferralOutcomes {
+  friendsJoined: Int!
+  friendsPlayed: Int!
+  goldMembers: Int!
+  nodesPurchasedByReferrals: Int!
+}
+type TownStarReward {
+  name: String!
+  image: String!
+  rarityIcon: String!
+  description: String!
+  totalToBeMinted: Int!
+  totalRemaining: Int!
+  totalReferralsNeeded: Int!
+  ownedByUser: Boolean!
+}
+
+type CryptoRewards {
+  earned: String!
+  usd: String!
+}
+
+type GalaShareConfig {
+  goldMember: Boolean!
+  # If not upgraded, do they have enough to upgrade
+  btcBalanceConfirmed: String
+  # If not upgraded, do they have a qualifying pending transaction
+  btcBalancePending: String
+  # Bitly share url
+  shareUrl: String
+  # Portion of fee that goes to referrer
+  referrerReward: Int!
+  # Portion of fee that goes to company.
+  companyFee: Int!
+  # Green, codex, winx etc
+  rewardCurrency: String!
+  # Amount of reward: i.e 100 (insert currency here)
+  rewardAmount: Int!
+  # How much a user needs for a balance in USD to qualify.
+  userBalanceThreshold: Int!
+  upgradeBenefits: [String!]!
+  basicWalletBenefits: [String!]!
+  nodesOwned: Int!
+  referralOutcomes: ReferralOutcomes!
+  galaRewards: CryptoRewards!
+  btcRewards: CryptoRewards!
+  townStarRewards: [TownStarReward!]
+}
+
+type Query {
+  galaShareConfig: GalaShareConfig!
+}

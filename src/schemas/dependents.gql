@@ -1,0 +1,68 @@
+input ContactInformation {
+  contactPhoneType: String!
+  countryCode: String!
+  phoneNumber: String!
+  email: String!
+  country: String!
+  state: String!
+  zipCode: String!
+}
+
+type ContactInformationRes {
+  contactPhoneType: String!
+  countryCode: String!
+  phoneNumber: String!
+  email: String!
+  country: String!
+  state: String!
+  zipCode: String!
+}
+
+input BlueDetails {
+  clinic: String!
+  careclixId: String!
+}
+
+type BlueDetailsRes {
+  clinic: String!
+  careclixId: String!
+}
+
+input DependentInput {
+  firstName: String!
+  lastName: String!
+  height: String!
+  weight: String!
+  gender: String!
+  title: String!
+  dateOfBirth: Date!
+  relationship: String!
+  contactInformation: ContactInformation!
+  blueDetails: BlueDetails!
+  smsNotification: Boolean!
+  emailNotification: Boolean!
+}
+
+type Dependent {
+  _id: String!
+  firstName: String!
+  lastName: String!
+  height: String!
+  weight: String!
+  gender: String!
+  title: String!
+  dateOfBirth: Date!
+  relationship: String!
+  contactInformation: ContactInformationRes!
+  blueDetails: BlueDetailsRes!
+  smsNotification: Boolean!
+  emailNotification: Boolean!
+}
+
+type Mutation {
+  addDependent(dependent: DependentInput): Dependent!
+  remDependent(_id: String): MutationResponse!
+}
+type Query {
+  getMyDependents: [Dependent]!
+}

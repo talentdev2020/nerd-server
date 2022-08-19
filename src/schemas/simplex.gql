@@ -1,0 +1,48 @@
+input SimplexQuoteInput {
+  sourceAmount: Float!
+  sourceCurrency: String!
+  targetCurrency: String!
+  clientIp: String!
+}
+
+input SimplexBuyUrlInput {
+  cryptoAddress: String!
+  cryptoCurrency: String!
+  fiatCurrency: String!
+  fiatAmount: Float!
+}
+
+type SimplexCurrencyAmount {
+  currency: String!
+  amount: Float!
+}
+
+type SimplexQuoteResponse {
+  digital_money: SimplexCurrencyAmount!
+  fiat_money: SimplexCurrencyAmount!
+}
+
+type SimplexBuyUrlResponse {
+  url: String!
+}
+
+type SimplexOrder {
+  status: String!
+  simplexPaymentId: String!
+  created: Date!
+  cryptoIcon: String!
+  transactionHash: String
+  cryptoAmount: SimplexCurrencyAmount!
+  fiatAmount: SimplexCurrencyAmount!
+}
+
+type SimplexOrdersResponse {
+  orders: [SimplexOrder]!
+  upToDate: Boolean!
+}
+
+type Query {
+  simplexQuote(simplexQuoteInput: SimplexQuoteInput!): SimplexQuoteResponse!
+  simplexBuyUrl(simplexBuyUrlInput: SimplexBuyUrlInput!): SimplexBuyUrlResponse!
+  simplexOrders(saveEvents: Boolean): SimplexOrdersResponse!
+}

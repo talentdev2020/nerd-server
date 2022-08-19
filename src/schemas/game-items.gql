@@ -1,0 +1,77 @@
+type GameSubItem {
+  tokenId: String
+  aquisitionType: String!
+  purchasePrice: Float
+  dateAquired: Int!
+  gameItemId: String!
+  lootBoxId: String
+  isListed: Boolean!
+  orderId: String
+}
+
+type GameItem {
+  baseId: String
+  name: String!
+  description: String!
+  image: String!
+  game: String!
+  coin: String!
+  quantityNeeded: Int
+  rarity: GameItemRarity
+  quantityOwned: Int
+  items: [GameSubItem!]
+}
+
+type CraftedItem {
+  baseId: String
+  game: String!
+  name: String!
+  description: String!
+  image: String!
+  rarity: GameItemRarity
+  requiredPieces: [GameItem!]!
+}
+
+type GameItemRarity {
+  icon: String!
+  label: String!
+  supplyLimit: Int
+  hexcode: String
+}
+
+type GameProduct {
+  id: String!
+  name: String!
+  coin: String!
+  game: String!
+  baseId: String
+  priceUsd: Float!
+  basePriceUsd: Float!
+  description: String!
+  image: String!
+  quantities: [Int!]!
+  rarity: GameItemRarity
+}
+
+type BuyGameProductsResponse {
+  items: [GameItem!]!
+  transactionHash: String!
+  totalGala: Float!
+}
+
+type Query {
+  ownedItems: [GameItem!]!
+  farmBotRequired: CraftedItem!
+  craftedItemsByGameName(gameName: String!): [CraftedItem!]!
+  gameProducts: [GameProduct!]!
+}
+
+type Mutation {
+  openLootBoxes(lootBoxIds: [String!]): MutationResponse!
+  buyGameProducts(
+    quantity: Int!
+    productId: String!
+    walletPassword: String!
+    orderContext: OrderContext
+  ): BuyGameProductsResponse!
+}

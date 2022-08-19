@@ -1,0 +1,61 @@
+type DistributionPoint {
+  pointType: String!
+  amount: Float!
+}
+
+type TokenReceived {
+  token: String!
+  amount: Float!
+}
+
+type UserDistributionData {
+  firstName: String
+  lastName: String
+  email: String
+  userId: String
+  totalPoolPoints: Float
+  points: [DistributionPoint!]
+  tokensReceived: [TokenReceived!]
+}
+
+type DistributionSnapshot {
+  date: Date!
+  gala: Int!
+  items: Int!
+  points: Float!
+}
+
+type DistributionResult {
+  amount: Int!
+  name: String!
+  imageUrl: String
+}
+
+type DistributionGlobalResult {
+  address: String!
+  gala: Int!
+  points: Float!
+  items: Int!
+}
+
+type ValidDistributionDates {
+  start: Date!
+  end: Date!
+}
+
+type DistributionInfo {
+  distributionDate: Date
+  address: String
+  coinAmount: Float
+  pointAmount: Int
+}
+
+type Query {
+  distributionData(email: String!, date: Date!): UserDistributionData
+  distributionSnapshot: DistributionSnapshot!
+  distributionResults(date: Date!): [DistributionResult!]!
+  distributionPoints(date: Date!): [DistributionPoint!]!
+  distributionGlobalResults(date: Date!): [DistributionGlobalResult!]!
+  distributionInfo(date: Date!): [DistributionInfo]
+  validDistributionDates: ValidDistributionDates!
+}

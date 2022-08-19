@@ -1,0 +1,30 @@
+
+"""
+UserIban represents a purchased debit card package
+"""
+type UserIban {
+    "The name of the package (digital | blue | black)"
+    packageName: String!
+    "Package status (purchased | ibancreated)"
+    status: String!
+    "IBAN data if available"
+    iban: Iban
+}
+
+"""
+Represents an IBAN created for the user
+"""
+type Iban {
+    "Status of the IBAN"
+    status: String!
+    "The IBAN number, such as LT89...."
+    ibanNumber: String!
+    "The paywiser IBAN identifier"
+    paywiserIbanId: String!
+    "The IBAN currency, such as USD, EUR"
+    currency: String!
+}
+
+type Query {
+  getUserIban: UserIban
+}

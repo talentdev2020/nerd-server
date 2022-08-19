@@ -1,0 +1,17 @@
+type Offer {
+  name: String!
+  enabled: Boolean!
+  title: String!
+  templateId: String!
+  emailTemplateId: String!
+  image: String!
+  created: Date!
+  resourceURL: String!
+  directMarketingURL: String!
+  DMTitle: String!
+  DMDesc: String!
+  DMImage: String!
+}
+type Query {
+  offers: [Offer]
+}

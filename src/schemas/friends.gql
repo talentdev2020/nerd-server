@@ -1,0 +1,38 @@
+type Friend {
+  id: ID!
+  displayName: String
+  profilePic: String
+  email: String
+  active: Boolean!
+  canNudge: Boolean!
+}
+
+type FriendsNodesReport {
+  #The number of friends that have an account
+  friendsJoined: Int!
+  #The number of friends that have upgrade their node.
+  nodesUpgraded: Int!
+  #The number of friends that are actively mining.
+  nodesOnline: Int!
+  #The number of licenses adquired by friends.
+  nodesPurchased: Int!
+}
+
+type ReferralsNodesTypesCountResponse {
+  firstName: String
+  lastName: String
+  email: String
+  largeNodeCount: Int
+  smallNodeCount: Int
+}
+
+type Query {
+  getReferralsNodesTypesCounts: [ReferralsNodesTypesCountResponse!]!
+  friendsNodesReport: FriendsNodesReport!
+  friends: [Friend!]!
+}
+
+type Mutation {
+  nudgeFriend(id: String!): MutationResponse!
+  nudgeAllFriends: MutationResponse!
+}

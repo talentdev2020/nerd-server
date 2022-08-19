@@ -1,0 +1,51 @@
+input DebitCardPurchase {
+  userId: String!
+  orderId: String!
+  card: DebitCardInput!
+  referenceId: String!
+  customerAddress: CustomerAddressInput
+}
+
+input DebitCardInput {
+  type: String!
+  price: Float!
+  description: String!
+  title: String
+  details: [String]
+  ibanTypeId: String!
+  cardTypeId: String!
+}
+
+input CustomerAddressInput {
+  address1: String
+  city: String
+  postalCode: String
+  state: String
+  country: String
+}
+
+type Mutation {
+  submitDebitCardPurchase(purchase: DebitCardPurchase): MutationResponse!
+}
+
+type CustomerAddress {
+  address1: String
+  city: String
+  postalCode: String
+  state: String
+  country: String
+}
+
+type DebitCard {
+  type: String!
+  price: Float!
+  description: String!
+  title: String
+  details: [String]
+  ibanTypeId: String!
+  cardTypeId: String!
+}
+
+type Query {
+  getAvailableDebitCards: [DebitCard!]
+}

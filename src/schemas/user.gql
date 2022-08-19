@@ -1,0 +1,194 @@
+type UserProfile {
+  email: String!
+  firstName: String!
+  lastName: String!
+  displayName: String
+  phone: String
+  phoneCountry: String
+  id: ID!
+  firebaseUid: ID
+  created: Date!
+  currency: String!
+  profilePhotoUrl: String
+  language: String
+  communicationConsent: [CommunicationConsent]
+  role: String!
+  number: String
+  emailVerified: Date
+  secondaryEmail: String
+  twoFaEnabled: Boolean
+  twoFaAuthenticated: Boolean
+  walletExists: Boolean!
+  twoFaSecret: String
+  twoFaQrCode: String
+  userIds: UserIds
+  activationTermsAndConditions: [ActivationTermsAndConditions]
+  gender: String
+  dateOfBirth: Date
+  country: String
+  countryCode: String
+  countryPhoneCode: String
+  clinic: String
+  careclixId: String
+  street: String
+  city: String
+  state: String
+  zipCode: String
+}
+
+type UserNameLookupResponse {
+  match: Boolean!
+  firstName: String
+  lastName: String
+}
+
+type UserIds {
+  connectUserId: String
+  arcadeUserId: String
+  greenUserId: String
+  codexUserId: String
+  blueUserId: String
+  galvanUserId: String
+  switchUserId: String
+  elementUserId: String
+  digUserId: String
+  giveUserId: String
+  libertyUserId: String
+  airUserId: String
+  waterUserId: String
+}
+
+type ActivationTermsAndConditions {
+  timestamp: Date
+  ipAddress: String
+  text: String
+}
+
+type CommunicationConsent {
+  timestamp: Date
+  consentGiven: Boolean
+}
+
+input CreateUserInput {
+  email: String
+  password: String
+  token: String
+  firstName: String!
+  lastName: String!
+  displayName: String
+  profilePhotoFilename: String
+  communicationConsent: [CommunicationConsentInput]
+  phone: String
+  referredBy: String
+  language: String
+  referralContext: OrderContext
+  activationTermsAndConditions: [ActivationTermsAndConditionsInput]!
+  gender: String
+  dateOfBirth: Date
+  country: String
+  countryCode: String
+  countryPhoneCode: String
+  clinic: String
+  careclixId: String
+  street: String
+  city: String
+  state: String
+  zipCode: String
+}
+
+input ActivationTermsAndConditionsInput {
+  timestamp: Date!
+  ipAddress: String!
+  text: String!
+}
+
+input CommunicationConsentInput {
+  timestamp: Date
+  consentGiven: Boolean
+}
+
+input UserIdsInput {
+  connectUserId: String
+  arcadeUserId: String
+  greenUserId: String
+  codexUserId: String
+  blueUserId: String
+  galvanUserId: String
+  switchUserId: String
+  elementUserId: String
+  digUserId: String
+  giveUserId: String
+  libertyUserId: String
+  airUserId: String
+  waterUserId: String
+}
+
+input UpdateUserIdsInput {
+  unsetMissingUserIds: Boolean = false
+  userIds: UserIdsInput!
+}
+
+input UpdateUserInput {
+  firstName: String
+  lastName: String
+  displayName: String
+  profilePhotoFilename: String
+  communicationConsent: [CommunicationConsentInput]
+  phone: String
+  email: String
+  password: String
+  secondaryEmail: String
+  language: String
+  updateUserNumber: Boolean
+  updateUserIds: UpdateUserIdsInput
+  activationTermsAndConditions: [ActivationTermsAndConditionsInput]
+  gender: String
+  dateOfBirth: Date
+  country: String
+  countryCode: String
+  countryPhoneCode: String
+  clinic: String
+  careclixId: String
+  street: String
+  city: String
+  state: String
+  zipCode: String
+}
+
+input AcceptAgreementsInput {
+  privacyPolicy: Boolean
+  termsAndConditions: Boolean
+  ipAddress: String
+}
+
+type UpdateUserResponse {
+  success: Boolean
+  user: UserProfile
+}
+
+type IsDisplayNameUniqueResponse {
+  unique: Boolean!
+}
+
+type NeededAgreementsResponse {
+  agreementNames: [String]!
+}
+
+type Query {
+  userExists(email: String!): Boolean!
+  profile: UserProfile!
+  isDisplayNameUnique(displayName: String!): IsDisplayNameUniqueResponse!
+  neededAgreements: NeededAgreementsResponse!
+  getNameByCustomerNumber(
+    affiliateIdOrCustomerNumber: String!
+  ): UserNameLookupResponse!
+}
+
+type Mutation {
+  createUser(userInfo: CreateUserInput!, ipAddress: String): ReturnToken!
+  updateUser(userInfo: UpdateUserInput!): UpdateUserResponse!
+  unsubscribe(userId: String!, emailList: String!): MutationResponse!
+  acceptAgreements(agreementInfo: AcceptAgreementsInput!): MutationResponse!
+  sendVerifyEmail(newAccount: Boolean): MutationResponse!
+  verifyEmailAddress(token: String!): MutationResponse!
+}

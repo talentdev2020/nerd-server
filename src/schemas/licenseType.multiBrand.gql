@@ -1,0 +1,21 @@
+input multiBrandEnumNoArgsInput {
+  brand: BrandsEnum
+}
+
+type LicenseTypeCountAndNodesOnlineResponse {
+    nodesOnline: Int
+    licenseCount: [LicenseTypeCount!]!
+}
+
+union LicenseCountAndNodesOnlineResponseOrError =
+    LicenseTypeCountAndNodesOnlineResponse
+  | ErrorResponse
+
+type MultiBrandLicenseTypeCountAndNodesOnlineResponse {
+  brand: BrandsEnum!
+  licenseCountAndNodesOnlineOrError: LicenseCountAndNodesOnlineResponseOrError!
+}
+
+type Query {
+  getMultiBrandLicenseTypeCountsAndNodesOnline(brandList: [multiBrandEnumNoArgsInput!]!): [MultiBrandLicenseTypeCountAndNodesOnlineResponse!]!
+}

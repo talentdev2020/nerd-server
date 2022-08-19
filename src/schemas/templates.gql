@@ -1,0 +1,8 @@
+type Template {
+  html: String
+  id: String
+}
+
+type Query {
+  template(name: String!): Template
+}

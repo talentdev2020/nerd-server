@@ -1,0 +1,21 @@
+type MutationResponse {
+  success: Boolean!
+  message: String
+}
+
+type ErrorResponse {
+  message: String!
+  code: String!
+  stack: String
+}
+
+enum BrandsEnum {
+  CONNECT
+  GREEN
+  BLUE
+  GALVAN
+  SWITCH
+  ELEMENT
+  GIVE
+  LIBERTY
+}

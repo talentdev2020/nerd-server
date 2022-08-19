@@ -1,0 +1,33 @@
+type Trade {
+  message: String!
+  midPrice: String!
+  midPriceInverted: String!
+  path: String!
+  liquidityProviderFee: String!
+  liquidityProviderFeePercent: Float!
+  tradeExpires: Float!
+}
+
+type Confirmation {
+  message: String!
+  hash: String!
+  blockNumber: Int!
+  confirmations: Int!
+  to: String!
+  midPrice: String!
+  midPriceInverted: String!
+  path: String!
+  liquidityProviderFee: String!
+  liquidityProviderFeePercent: Float!
+  tradeExpires: Float!
+}
+
+type Mutation {
+  startSwap(coinSymbol0: String!, coinSymbol1: String!, amount: String!): Trade!
+  confirmSwap(
+    coinSymbol0: String!
+    coinSymbol1: String!
+    amount: String!
+    walletPassword: String!
+  ): Confirmation!
+}

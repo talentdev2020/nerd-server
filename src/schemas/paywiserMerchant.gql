@@ -1,0 +1,53 @@
+type PaymentRequestResponse {
+  orderId: String!
+  amount: String
+  currency: String
+  description: String
+  validToDateTime: String
+  numberOfPayments: Int
+  qrCodeData: String
+}
+
+type IPaywiserPaymentRequestConfirm {  
+  orderId: String!
+  customerPersonId: String!
+  customerMobileNumber: String!
+  amount: String!
+  currency: String!
+  description: String!
+  validMinutes: Date!
+  validToDateTime: String!
+  numberOfPayments: Int!
+  referenceId: String!
+  pendingPaymentId: String!
+  qrCodeData: String!
+  callerReferenceId: String!
+  customerAction: String!
+  transactionStatus: String!
+}
+
+input RequestPaymentInput {
+  amount: String!
+  description: String!
+}
+
+type PaywiserMerchantUserNotification{
+  status: String!
+  type: String!
+  message:String!
+}
+
+type Query{
+  paywiserPaymentRequestConfirm:[IPaywiserPaymentRequestConfirm]!
+}
+
+type Mutation {
+  paywiserMerchantRequestPayment(
+    args: RequestPaymentInput
+  ): PaymentRequestResponse!
+}
+
+
+type Subscription{
+  paywiserMerchantGetUserNotification: PaywiserMerchantUserNotification!
+}

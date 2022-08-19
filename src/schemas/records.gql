@@ -1,0 +1,42 @@
+type PollOption {
+  name: String
+  index: Int
+  numVotes: Int
+}
+
+type PollData {
+  pollId: String
+  questionText: String
+  externalLink: String
+  totalVotes: Int
+  options: [String]
+  results: [PollOption]
+  numTimesUserHasVoted: Int
+}
+
+type NetworkHardwareData {
+  hddSizeMb: Int
+  processorSpeedMhz: Int
+  ramMb: Int
+}
+
+type TimeStats {
+  msSinceBeginningOfDay: Int
+  msActiveToday: Int
+  dailyRequiredActiveHours: Int
+  numNodesInNetwork: Int
+  numTotalGalaNodes: Int
+  townstarMaterialOfTheWeek: String
+  pollData: PollData
+  networkHardwareData: NetworkHardwareData
+  error: String
+}
+
+type Query {
+  checkIn(
+    domain: String
+    hardwareId: String
+    minerIsActive: Boolean
+    userId: String
+  ): TimeStats!
+}

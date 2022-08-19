@@ -1,0 +1,43 @@
+type ReturnToken {
+  twoFaEnabled: Boolean!
+  token: String!
+  walletExists: Boolean!
+  profile: UserProfile!
+}
+
+type GameToken {
+  token: String!
+}
+
+type ValidateExistingTokenResponse {
+  twoFaEnabled: Boolean!
+  twoFaAuthenticated: Boolean!
+  walletExists: Boolean!
+  profile: UserProfile!
+  twoFaSecret: String
+  twoFaQrCode: String
+  newToken: String!
+}
+
+type TwoFaRegisterResponse {
+  twoFaSecret: String
+  twoFaQrCode: String
+}
+
+type TwoFaValidationResponse {
+  authenticated: Boolean!
+  newToken: String
+}
+
+type Mutation {
+  login(token: String!): ReturnToken!
+  twoFaRegister: TwoFaRegisterResponse!
+  disableTwoFa(totpToken: String!): TwoFaValidationResponse!
+}
+
+type Query {
+  twoFaValidate(totpToken: String!): TwoFaValidationResponse!
+  validateExistingToken: ValidateExistingTokenResponse!
+  walletPasswordRequired: Boolean!
+  gameJWT: GameToken!
+}

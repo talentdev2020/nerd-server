@@ -1,0 +1,169 @@
+type Balance {
+  confirmed: String!
+  unconfirmed: String!
+}
+
+type Transaction {
+  id: String!
+  status: String!
+  confirmations: Int!
+  timestamp: Date!
+  fee: String!
+  link: String!
+  to: [String!]!
+  from: String!
+  amount: String!
+  type: String!
+  total: String!
+}
+
+type NewTransaction {
+  id: String!
+  status: String!
+  confirmations: Int!
+  timestamp: Int!
+  fee: String!
+  link: String!
+  to: [String!]!
+  from: String!
+  amount: String!
+  type: String!
+  total: String!
+  coinSymbol: String!
+  balance: Balance!
+}
+
+type FeeEstimate {
+  estimatedFee: String!
+  feeCurrency: String!
+  feeCurrencyBalance: String!
+}
+
+type Wallet {
+  symbol: String!
+  name: String!
+  balance: Balance!
+  icon: String!
+  backgroundColor: String!
+  receiveAddress: String!
+  transactions: [Transaction!]!
+  feeEstimate: FeeEstimate!
+  contractAddress: String
+  canSendFunds: Boolean!
+  decimalPlaces: Int
+}
+
+type MutationResponse {
+  success: Boolean!
+  message: String
+}
+
+type TxSendResponse {
+  success: Boolean!
+  message: String
+  transaction: Transaction
+}
+
+type TxReceivedResponse {
+  success: Boolean!
+  message: String
+  transaction: NewTransaction
+}
+type BalanceChangeResponse {
+  success: Boolean!
+  walletId: String!
+}
+
+type ValidateMnemonicResponse {
+  valid: Boolean!
+}
+
+type PrivateKey {
+  key: String!
+  symbol: String!
+}
+
+type PrivateKeyResponse {
+  result: [PrivateKey!]
+  success: Boolean!
+  error: String
+}
+
+type FiatPricesResponse {
+  prices: JSON!
+}
+
+input SendOutput {
+  to: String!
+  amount: String
+  tokenId: String
+}
+
+enum WalletStatusEnum {
+ OK
+ BROKEN
+ EMPTY
+} 
+
+enum BrokenWalletRepairStrategyEnum {
+   AUTOREPAIR
+   PASSPHRASE_OR_MNEMONIC
+   MNEMONIC
+   MNEMONIC_AND_PASSPHRASE
+   IRREPARABLE
+}
+
+enum BrokenWalletUsabilityEnum {
+  READ_ONLY
+  NONE
+}
+
+type WalletHealthDetail {
+  status:WalletStatusEnum!  
+  repairStrategy:BrokenWalletRepairStrategyEnum
+  usability:BrokenWalletUsabilityEnum
+}
+
+type WalletHealthBrokenDetail {
+  btcHealthDetail:WalletHealthDetail!
+  ethHealthDetail:WalletHealthDetail!
+}
+
+type WalletHealthSummary {
+  status:WalletStatusEnum!  
+  brokenDetail:WalletHealthBrokenDetail
+}
+
+type Query {
+  # If no coinSymbol is provided, all supported wallets will be returned
+  wallet(coinSymbol: String): [Wallet!]!
+  mnemonic(lang: String): String!
+  validateMnemonic(mnemonic: String!): ValidateMnemonicResponse!
+  # If no coinSymbol is provided, all supported wallets will be returned
+  privateKey(walletPassword: String!, coinSymbol: String): PrivateKeyResponse!
+  getFiatPrices(coinSymbols: [String!]!, currency: String): FiatPricesResponse!
+  walletHealthCheck:WalletHealthSummary!
+}
+
+type Mutation {
+  # If no coinSymbol is provided, all supported wallets will be returned
+  sendTransaction(
+    coinSymbol: String
+    outputs: [SendOutput!]!
+    totpToken: String
+    walletPassword: String
+  ): TxSendResponse!
+  sendGameItems(
+    coinSymbol: String
+    outputs: [SendOutput!]!
+    totpToken: String
+    walletPassword: String
+  ): TxSendResponse!
+  createWallet(mnemonic: String!, walletPassword: String): MutationResponse!
+  recoverWallet(mnemonic: String!, newPassword: String!): MutationResponse!  
+  removeWallets:MutationResponse!
+}
+
+type Subscription {
+  newBalance(coinSymbol: String!): BalanceChangeResponse!
+}

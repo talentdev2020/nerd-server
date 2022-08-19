@@ -1,0 +1,7 @@
+type QuoteResponse {
+    galaPrice: Float!
+}
+
+type Query {
+    quote(usdValueInCents: Int): QuoteResponse!
+}

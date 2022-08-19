@@ -1,0 +1,14 @@
+type ServiceHealth {
+    name: String!
+    status: Boolean!
+    info: String!
+}
+
+type WSHealthCheck{
+    walletServerVersion: String!
+    servicesHealth: [ServiceHealth!]!
+}
+
+type Query {
+    checkAllHealthServices: WSHealthCheck!
+}

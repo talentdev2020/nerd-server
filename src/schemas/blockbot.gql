@@ -1,0 +1,98 @@
+type BlockbotReport {
+  UserId: String!
+  DatePrepared: Date!
+  TotalBlockbots: Int
+  WinScore: Float!
+  WinRewards: Float!
+  AvailableBalance: Float!
+  Day: BlockbotMemory!
+  Week: BlockbotMemory!
+  Month: BlockbotMemory!
+  Year: BlockbotMemory!
+  Quarter: BlockbotMemory!
+  All: BlockbotMemory!
+  PendingDirectPaymentsETH: Float
+}
+
+type BlockbotReportToken {
+  userId: String!
+  datePrepared: Date!
+  totalBlockbots: Int!
+  day: BlockbotMemoryToken!
+  week: BlockbotMemoryToken!
+  month: BlockbotMemoryToken!
+  year: BlockbotMemoryToken!
+  quarter: BlockbotMemoryToken!
+  all: BlockbotMemoryToken!
+}
+
+type BlockbotMemory {
+  TotalBlockbotsNow: Float!
+  TotalBlockbotsPrevious: Float!
+  TotalRewardsCoin: Float!
+  TotalRewardsUsd: Float!
+  AverageUsdPerBlockbot: Float!
+  AveragePercentDifference: Float!
+  Memory: String!
+  WinPoints: Float!
+  MainRewards: [DirectReward]
+  NodeRewards: [NodeReward]
+}
+
+type BlockbotMemoryToken {
+  totalBlockbotsNow: Float!
+  totalBlockbotsPrevious: Float!
+  totalRewardsCoin: Float!
+  totalRewardsUsd: Float!
+  memory: String!
+  brandsRewards: [BlockbotBrandReward]!
+}
+
+type BlockbotBrandReward {
+  brand: String!
+  rewards: [BlockbotReward]!
+}
+
+type DirectReward {
+  Time: Date!
+  Description: String!
+  Points: Float!
+  RewardAmount: Float!
+}
+
+type NodeReward {
+  Time: Date!
+  Description: String!
+  Points: Float!
+  RewardAmount: Float!
+  AmountDistributeEven: Float
+  AmountDistributionProportion: Float
+}
+
+type BlockbotReward {
+  brand: String!
+  name: String!
+  isActive: Boolean!
+  isDroid: Boolean
+  licenseId: String!
+  purchased: Date!
+  rewards: Float!
+}
+
+type BlockbotActivation {
+  Name: String!
+  ActiveCount: Int!
+  ActivationsCount: Int!
+  Rewards: Float!
+  RewardsAllTime: Float!
+}
+
+type RedeemResponse {
+  status: String!
+}
+
+type Query {
+  getBlockbotTokens(userId: String): BlockbotReportToken
+  getBlockbotReport(userId: String): BlockbotReport
+  redeemConnectPay(destinationAddress: String, coinSymbol: String): RedeemResponse
+}

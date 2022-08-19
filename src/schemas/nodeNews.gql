@@ -1,0 +1,20 @@
+type NodeNews {
+  id: String!
+  text: String!
+  link: String!
+  date: Date!
+}
+
+input LicenseTypeMappingInput {
+  licenseTypeId: String!
+  wordPressMembershipId: String!
+}
+
+type Query {
+  getNodeNews(limit: Int, months: Int): [NodeNews!]!
+}
+
+type Mutation {
+  createNodeNews(text: String!, link: String!): NodeNews!
+  editNodeNews(id: String!, text: String!, link: String!): NodeNews!
+}

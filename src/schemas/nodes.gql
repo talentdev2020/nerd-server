@@ -1,0 +1,44 @@
+type Product {
+  id: String!
+  name: String!
+  shownPrice: Float!
+  description: String!
+}
+
+type NodesInfo {
+  online: Int
+  owned: Int
+}
+
+type LastCheckIn {
+  time: Date
+  epochTime: String
+  hashrate: String
+}
+
+type MiningRecord {
+  userId: String
+  hardwareId: String
+  start: Date
+  stop: Date
+  startEpochTime: String
+  stopEpochTime: String
+  lastCheckIn: LastCheckIn
+}
+
+type Query {
+  productById(id: String!): Product!
+  getAllproducts: [Product]!
+  nodesInfo: NodesInfo
+}
+
+type Mutation {
+  buyNode(
+    quantity: Int!
+    coinSymbol: String!
+    productId: String!
+    walletPassword: String!
+    orderContext: OrderContext
+  ): TxSendResponse!
+  simulateNodeDistribution(startDate: Date!, endDate: Date!): MiningRecord!
+}

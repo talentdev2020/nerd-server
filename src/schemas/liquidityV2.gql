@@ -1,0 +1,80 @@
+type ValidePasscode {
+  message: String!
+}
+
+type PairParams {
+  pairAddress: String!
+  message: String!
+}
+
+type PairInfo {
+  message: String!
+  reserve0: Float!
+  reserve1: Float!
+  midPrice: Float!
+  midPriceInverted: Float!
+  liquidity: String!
+  pairAddress: String!
+}
+
+type IsApprove {
+  message: String!
+  symbol: String!
+  isApprove: Boolean!
+}
+
+type TokenApprove {
+  message: String!
+  created: Boolean!
+}
+
+type LiquidityAdd {
+  message: String!
+}
+
+type LiquidityRem {
+  message: String!
+  amountA: String
+  amountB: String
+}
+
+type Query {
+  getPairInfo(
+    coinSymbol0: String!
+    coinSymbol1: String!
+    walletPassword: String!
+  ): PairInfo
+  checkApprove(
+    coinSymbol: [String!]!
+    walletPassword: String!
+    address: String
+  ): [IsApprove]
+}
+
+type Mutation {
+  validatePasscode(walletPasscode: String!): ValidePasscode
+  createPair(
+    walletPassword: String!
+    coinSymbol0: String!
+    coinSymbol1: String!
+  ): PairParams
+  approveTokens(
+    walletPassword: String!
+    coinSymbol0: String!
+    address: String
+  ): TokenApprove
+  addLiquidityV2(
+    coinSymbol0: String!
+    coinSymbol1: String!
+    amountADesired: String!
+    amountBDesired: String!
+    walletPassword: String!
+    address: String!
+  ): LiquidityAdd
+  remLiquidityV2(
+    coinSymbol0: String!
+    coinSymbol1: String!
+    walletPassword: String!
+    percentage: String!
+  ): LiquidityRem
+}

@@ -1,0 +1,245 @@
+type ReferenceNumber {
+  referenceNumber: String!
+}
+
+type Kyc {
+  personId: String
+  kycId: String
+  requireMobileNumberCheck: Boolean
+  requireVideo: Boolean
+  requireAdditionalDocuments: Boolean
+  allowAddressEntry: Boolean
+  requiredAddressFields: String
+  additionalDocuments: String
+  videoDocumentExpiryDate: String
+  videoDocumentWillExpire: String
+  videoDocumentExpired: String
+  ibanWillBeCreated: String
+  requireAddress: Boolean
+  addressFields: String
+  referenceId: String
+  referenceNumber: String
+  verificationStatus: String
+  kycStatus: String
+}
+
+type PaywiserUserNotification{
+  status: String!
+  type: String!
+  message:String!
+}
+
+type CheckReferenceNumber {
+  statusCode: Int
+  statusDescription: String
+  assignedDateTime: String
+  referenceNumberStatus: String
+  personId: String
+  kycId: String
+  kycStart: String
+  kycEnd: String
+  kycStatus: String
+  verificationEnd: String
+  verificationStatus: String
+  additionalData: String
+  referenceId: String
+  callerReferenceId: String
+}
+
+type GetPersonAddress {
+  statusCode: Int
+  statusDescription: String
+  address: PersonAddress
+  referenceID: String
+  callerReferenceID: String
+}
+
+type PersonAddress {
+  firstName: String
+  middleName: String
+  lastName: String
+  address1: String
+  address2: String
+  address3: String
+  zipCode: String
+  city: String
+  state: String
+  countryCode: String
+  countryName: String
+  mobileNumber: String
+  email: String
+  verificationDateTime: String
+  verificationStatus: String
+  verificationRejectReason: String
+}
+
+
+# ===============buyCrypto============
+input BuyCryptoInput {
+  cryptoSymbol:String!
+  amount:String!
+  fiatSymbol:String!  
+}
+type BuyCryptoResponse{
+  validTo:Date
+  rate: String
+  rateDecimals: Int
+  amount: String
+  amountDecimals: Int
+  amountSymbolCode: String
+  requestedAmount: String
+  requestedAmountDecimals: Int
+  requestedAmountSymbolCode: String
+  feeAmount: String
+  feeAmountDecimals: Int
+  feeAmountSymbolCode: String
+  transactionId:String
+  transactionStatusDescription:String
+  statusDescription: String
+}
+# ===============endbuyCrypto============
+
+# ===============confirmBuyCrypto============
+input ConfirmBuyCryptoInput {
+  transactionId: String!
+}
+
+type ConfirmBuyCryptoResponse{
+  referenceId: String!
+  transactionId: String!
+  transactionStatus: String!
+  transactionStatusDescription: String!
+  confirmAt: Date!
+}
+# ===============endConfirmBuyCrypto============
+
+# ===============SellCrypto============
+input SellCryptoInput {
+  cryptoSymbol: String!
+  cryptoAmount: String!
+  paywiserIbanId: String!
+}
+
+type SellCryptoResponse {
+  statusCode: Int!
+  statusDescription: String!
+
+  depositAddress: String!
+  depositMemo: String
+
+  validTo: Date
+  rate: String!
+  amount: String!
+  amountSymbolCode: String!
+}
+# ===============endSellCrypto============
+
+# ===============confirmSellCrypto============
+input ConfirmSellCryptoInput {
+  cryptoSymbol: String!
+  transactionId: String!
+  walletPassword: String!
+}
+
+type ConfirmSellCryptoResponse{
+  referenceId: String!
+  transactionId: String!
+  transactionStatus: String!
+  transactionStatusDescription: String!
+  confirmAt: Date!
+}
+# ===============endConfirmSellCrypto============
+
+# ===============DeleteTransactions============
+input DeleteTransaction{
+  transactionId: String!
+}
+# ===============EndDeleteTransactions============
+
+
+# ===============CreateIban============
+
+input CreateIban {
+  platinum: Boolean!
+}
+
+type CreateIbanResponse {
+  referenceId: String
+  callerReferenceId: String
+  statusCode: Int
+  statusDescription: String
+}
+
+# ===============EndCreateIban============
+
+
+input GetSpotPrice {
+  symbolFrom: String!
+  symbolTo: String!
+  amount: String!
+}
+
+type GetSpotPriceResponse{
+  rate: String!
+  rateDecimals: Int
+  conversionAmount: String!
+  conversionAmountDecimals: Int
+  conversionAmountSymbolCode: String
+  statusCode: Int
+  statusDescription: String
+  referenceId: String
+  callerReferenceId: String
+}
+
+# Temporal feature to store data, could be removed later
+input UserPaywiserInput{
+  referenceNumber:String!
+}
+
+type PaywiserSymbolResponse{
+  id: String
+  symbol: String
+  name: String
+  isCrypto: Boolean
+  decimals: Int
+  memoRequired: Boolean
+}
+
+type UserPaywiser {
+  kyc: Kyc
+}
+
+input OtpCheckInput {
+  otpId: String!
+  otp: String!
+}
+
+type Mutation {
+  paywiserBuyCrypto(args:BuyCryptoInput):BuyCryptoResponse!
+  paywiserConfirmBuyCrypto(args:ConfirmBuyCryptoInput):ConfirmBuyCryptoResponse!
+  paywiserSellCrypto(args:SellCryptoInput):SellCryptoResponse!
+  paywiserConfirmSellCrypto(args:ConfirmSellCryptoInput):ConfirmSellCryptoResponse!
+  paywiserDeleteTransactions(args: DeleteTransaction):MutationResponse!
+  #paywiserCreateUser(input:UserPaywiserInput):MutationResponse!  
+  paywiserCreatePersonIban(args: CreateIban): CreateIbanResponse!
+}
+
+type Query {
+  """Retrieve OTP ID"""
+  paywiserGetOtp: String!
+
+  """Check OTP with OTPID and return AccessToken if valid or null otherwise"""
+  paywiserCheckOtp(otpInput: OtpCheckInput!): String
+
+  paywiserGetReferenceNumber: ReferenceNumber!
+  paywiserCheckReferenceNumber: CheckReferenceNumber!
+  paywiserGetPersonAddress: GetPersonAddress!
+  paywiserGetSpotPrice(args: GetSpotPrice): GetSpotPriceResponse!
+  paywiserGetCryptoSymbols:[PaywiserSymbolResponse!]!
+  paywiserGetFiatSymbols:[PaywiserSymbolResponse!]!
+  paywiserGetUserPaywiser: UserPaywiser!
+}
+
+type Subscription{
+  paywiserGetUserNotification: PaywiserUserNotification!
+}

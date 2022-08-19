@@ -68,10 +68,6 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
-.env
-.env.test
-
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 
@@ -102,3 +98,55 @@ dist
 
 # TernJS port file
 .tern-port
+
+# compiled output
+/lib
+junit.xml
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+/.vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+#System Files
+.DS_Store
+Thumbs.db
+
+# Envs
+*.env**
+
+# Firebase Keys
+service-accounts.json
+serviceAccountKey.json
+serviceAccountKey_all.json
+jwtrsa**
+
+# Personal notes
+credentials.ts
+TODO.md
+
+# Firebase DB Config
+authDbConnections.json
+
+# Local Secrets
+secrets.json
+
+dump.rdb
+report.html
+brand-info.json
+
+# Draw files
+*.dio
+*.drawio

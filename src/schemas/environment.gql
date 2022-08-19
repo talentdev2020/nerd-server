@@ -1,0 +1,9 @@
+type EnvironmentResponse {
+  userAgreements: [String]
+  signedTemplates: [String]
+  favicon: String
+}
+
+type Query {
+  environment(host: String): EnvironmentResponse!
+}

@@ -1,0 +1,45 @@
+variables:
+  # You can select just one (for single deployments) company name or multiple. The
+  # allowed values are: "COMPANIES: blockchainjedi connect codex green give blue"
+  COMPANIES: connect codex green galvan give liberty switch element
+
+  # putting "example" will generate example.domain.com, example-stage0.domain.com, etc..
+  PROD_SUBDOMAIN: walletsrv
+
+  # This can be one of three posible choices: "kubernetes, serverless, traditional"
+  # It can only be a single value following this flow:
+  # serverless - low traffic  or low use scripts and apps.
+  # kubernetes - high traffic, long running or resource intensive apps.
+  # traditional - special use cases.
+  DEPLOY_TYPE: kubernetes
+
+  # Due to server abstractions in serverless and kubernetes it is nessesary to declare
+  # The resource requirements of your app. If it's too low your app won't run. If it's
+  # too high it will be detrimental to code optimization.
+  #
+  # Set how much memory in MB the App normally uses and therefore is REQUESTing to be
+  # used. Also set the upper LIMIT of how much memory the app will get before the
+  # process will be killed. Watch your process and tweak with values 128 MB to 3,008 MB
+  # in 64 MB increments. Always go one increment up from where you think you need for
+  # MEMORY_REQUESTED variable.
+  MEMORY_REQUESTED: 128
+  MEMORY_LIMIT: 256
+  #
+  # How much CPU the app consistently uses and therefore is REQUESTing to be reserved for
+  # itself. Due to the fact that Nodejs is single threaded the upper limit will always be
+  # 1000m (1 cpu core) and doesn't need to be declared. 200m is 1/5 of 1 cpu core.
+  CPU_REQUESTED: 100m
+
+  # ENV that will be used for tests
+  TEST_ENV: $CONNECT_ENV
+
+  #######################
+  # DON'T EDIT BELOW HERE
+  DEFAULT_DEPLOY: 'true'
+  LEGACY_K8S_APP: 'true'
+  NPM_AUDIT: 'false'
+  JEST_TESTS: 'false'
+
+include:
+  - project: 'bb/ci-templates'
+    file: '/index.yml'

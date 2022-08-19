@@ -1,0 +1,41 @@
+type LicenseType {
+  id: String!
+  name: String!
+  rewardType: String!
+  nodeType: String
+  fullNode: Boolean
+  environmentType: String!
+  topPerformingMinerRewardPerDollarMined: Int!
+  remainingMinerRewardPerDollarMined: Int!
+  concurrentDevices: Int!
+  promoPointsPerDay: Int!
+  destinationLicenseTypeId: String
+}
+
+type LicenseTypeCount {
+  name: String!
+  rewardType: String!
+  nodeType: String!
+  count: Int!
+  inUseCount: Int
+}
+
+type Query {
+  getLicenseTypeCounts: [LicenseTypeCount!]!
+  getAllLicenseTypes: [LicenseType!]!
+}
+
+type Mutation {
+  createLicenseType(
+    name: String!
+    rewardType: String!
+    environmentType: String!
+    topPerformingMinerRewardPerDollarMined: Int!
+    remainingMinerRewardPerDollarMined: Int!
+    concurrentDevices: Int!
+    promoPointsPerDay: Int!
+    nodeType: String
+    fullNode: Boolean
+    destinationLicenseTypeId: String
+  ): LicenseType!
+}

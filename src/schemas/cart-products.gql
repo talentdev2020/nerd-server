@@ -1,0 +1,51 @@
+type Query {
+  getAllCartProducts: [CartProduct]!
+}
+
+type Query {
+  getCartProductById(productId: String!): CartProductResponse!
+}
+
+type Query {
+  getCartProductByMeprId(meprId: Int!): CartProductResponse!
+}
+
+type Mutation {
+  updateCartProductCostUpFront(meprId: Int!, costUpFront:Float!):MutationResponse!
+}
+
+type Mutation {
+  createCartProduct(
+    name: String!
+    costUpfront: Float!
+    costSubscription: Float!
+    meprId: Int
+  ): CartProduct!
+
+  setLinkLicenseTypeCartProduct(
+    meprId: Int!
+    licenses: [LicenseInfo!]!
+  ): CartProductResponse
+}
+
+input LicenseInfo {
+  licenseTypeId: String!
+  quantity: Int!
+}
+
+type CartProduct {
+  name: String!
+  costUpfront: Float!
+  costSubscription: Float!
+  created: Date!
+  lastUpdated: Date
+  id: String!
+  meprId: Int
+  licenses: [License]!
+}
+
+type CartProductResponse {
+  success: Boolean!,
+  data: CartProduct,
+  message: String!
+}

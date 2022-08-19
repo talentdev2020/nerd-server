@@ -1,0 +1,67 @@
+type VaultItem {
+  symbol: String!
+  name: String!
+  icon: String!
+  contractAddress: String!
+  balance: Float!
+  fees: VaultGasFee!
+}
+
+type VaultTransaction {
+  userId: String!
+  symbol: String!
+  tokenId: String
+  isNft: Boolean!
+  amount: Float!
+  created: Date!
+  status: String!
+  dateMint: Date
+  txMint: String
+}
+
+type VaultGasFee {
+  symbolToMint: String!
+  symbolAcceptFee: String!
+  amount: Float!
+  expires: Date!
+  name: String!
+}
+
+type VaultRetrieveResponseData {
+  symbol: String!
+  amount: Float!
+  transactionId: String
+  error: ErrorResponse
+}
+
+type VaultRetrieveResponse {
+  data: [VaultRetrieveResponseData]
+  error: ErrorResponse
+}
+
+input VaultRequestDirectPaymentInput {
+  symbol: String!
+  requestedAmount: String!
+  toWalletAddress: String!
+}
+
+type VaultRequestDirectPaymentResponse {
+  id: String
+  status: String
+}
+
+input VaultItemRequest {
+  symbol: String!
+  amount: Float!
+}
+
+type Mutation {
+  vault: [VaultItem]!
+  vaultGas(coinSymbol: String!): VaultGasFee!
+  vaultTransactions(coinSymbol: String!, filterType: String): [VaultTransaction]
+  vaultRetrieve(
+    items: [VaultItemRequest!]!
+    encryptionPasscode: String!
+  ): VaultRetrieveResponse!,
+  requestDirectVaultPayment(requestedPaymentInfo: VaultRequestDirectPaymentInput): VaultRequestDirectPaymentResponse
+}

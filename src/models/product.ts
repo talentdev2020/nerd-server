@@ -1,0 +1,57 @@
+import { model, Schema, Document } from 'mongoose';
+import { IProduct } from '../types';
+
+export interface IProductDocument extends IProduct, Document {}
+
+export const productSchema = new Schema(
+  {
+    name: String,
+    description: String,
+    price: { type: Number, default: 0 },
+    shownPrice: { type: Number, default: 0 },
+    includes: { type: Number, default: 0 },
+    includedProducts: { type: Number, default: 0 },
+    enabled: { type: Boolean, index: true },
+    hide: { type: Boolean, default: false },
+    payWith: { type: String, index: true },
+    permissions: { type: [String], default: [], index: true },
+    couponCodes: { type: [String], default: [], index: true },
+    created: { type: Date, index: true },
+    id: { type: String, index: true },
+    basePrice: { type: Number, default: 0 },
+    shownBasePrice: { type: Number, default: 0 },
+    soldInQuantities: { type: Boolean, default: false },
+    onlyContainsIncludedProducts: { type: Boolean, default: false },
+    poolType: String,
+    requiredAccountType: String,
+    visibleTo: { type: [String], default: [], index: true },
+    pricePerMonth: { type: Number, default: 0 },
+    cogs: { type: Number, default: 0 },
+    cogsOther: { type: Number, default: 0 },
+    baseCogs: { type: Number, default: 0 },
+    baseCogsOther: { type: Number, default: 0 },
+    directRewards: { type: Number, default: 0 },
+    teamRewards: { type: Number, default: 0 },
+    baseDirectRewards: { type: Number, default: 0 },
+    baseTeamRewards: { type: Number, default: 0 },
+    partnerName: { type: String, index: true },
+    partnerRewards: { type: Number, default: 0 },
+    basePartnerName: { type: String, index: true },
+    basePartnerRewards: { type: Number, default: 0 },
+    productCode: String,
+    baseProductCode: String,
+    monthlyProductId: String,
+    maxPurchases: Number,
+    greenSoftNodeLicenses: Number,
+    codexSoftNodeLicenses: Number,
+    connectSoftNodeLicenses: Number,
+    arcadeSoftNodeLicenses: Number,
+    miners: { type: [String], default: [] },
+    onlyPullFromDefaultUser: { type: Boolean, default: false },
+    removePermissions: { type: [String] },
+    brandPercentages: Object,
+  },
+  { id: false },
+);
+
+export const Product = model<IProductDocument>('product', productSchema);

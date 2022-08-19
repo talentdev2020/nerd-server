@@ -1,0 +1,45 @@
+input CareclixDemographic {
+  userId: String!
+  username: String!
+  email: String!
+  productId: String!
+  clinicIds: String!
+  firstName: String!
+  lastName: String!
+  gender: String!
+  dateOfBirth: DateOfBirthInput!
+  phoneNumber: PhoneInput!
+  address: AddressInput!
+}
+
+input DateOfBirthInput {
+  year: String!
+  month: String!
+  day: String!
+}
+
+input CareclixDemographicConfirm {
+  userId: String!
+  visitedTelemed: Boolean!
+  sentToTelemed: Boolean!
+}
+
+input AddressInput {
+  street: String!
+  city: String!
+  state: String!
+  zipCode: String!
+  country: String!
+}
+
+input PhoneInput {
+  type: String!
+  countryCode: String!
+  number: String!
+  code: String!
+}
+
+type Mutation {
+  getCareclixDemographics(params: CareclixDemographic): Boolean
+  confirmVisitedTelemed(params: CareclixDemographicConfirm): Boolean
+}

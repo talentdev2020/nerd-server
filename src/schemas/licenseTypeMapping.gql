@@ -1,0 +1,29 @@
+type WordPressMembership {
+  id: String!
+  created: Date!
+}
+
+type LicenseTypeMappingFull {
+  licenseType: LicenseType!
+  wordPressMemberships: [WordPressMembership!]!
+}
+
+type LicenseTypeMapping {
+  licenseTypeId: String!
+  wordPressMembershipId: String!
+  created: Date!
+}
+
+input LicenseTypeMappingInput {
+  licenseTypeId: String!
+  wordPressMembershipId: String!
+}
+
+type Query {
+  getAllFullLicenseTypeMapping: [LicenseTypeMappingFull!]!
+}
+
+type Mutation {
+  addLicenseTypeMapping(toMapp: LicenseTypeMappingInput): LicenseTypeMapping!
+  remLicenseTypeMapping(toUnmapp: LicenseTypeMappingInput): MutationResponse!
+}

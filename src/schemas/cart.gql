@@ -1,0 +1,176 @@
+enum PurchasedProductsBrandOriginEnum {
+  PURCHASED_IN_CURRENT_BRAND
+  PURCHASED_IN_CONNECT_BRAND
+}
+
+type CartTransactionsTotalByProductName {
+  productName: String!
+  quantityPurchasedSum: Int!
+  transactionsCount: Int!
+  totalRevenueUsdSum: String!
+}
+
+type CartTransactionsProductsByCategory {
+  products: [CartTransactionsTotalByProductName!]!
+  category: PurchasedProductsBrandOriginEnum!
+}
+
+type CartTransactionsHeaderReportResponse {
+  grandTotalRevenueUsdSum: String!
+  productsByCategory: [CartTransactionsProductsByCategory!]!
+}
+
+type CartTransactionsDetailReport {
+  address: String
+  name: String
+  email: String
+  status: String
+  productName: String
+  productId: String
+  totalUsd: String
+  cryptoCurrency: String
+  totalCryptoReceived: String
+  created: Date
+  orderNumber: String
+  totalCrypto: String
+  quantity: Int
+  memberId: String
+  userId: String
+  conversionRate: String
+  currentValue: String
+}
+
+type PricingCartAddress {
+  amountUsd: Float!
+  amountCrypto: Float!
+  quantity: Int!
+}
+
+type CartAddress {
+  coinSymbol: String
+  address: String
+  qrCode: String
+}
+
+type CartAddressResponse {
+  cartAddress: CartAddress
+  pricing: PricingCartAddress
+  nodeLicenseType: String
+}
+
+type CartAddressRequest {
+  userId: String
+  coinSymbol: String
+  amountUsd: String
+  amountCrypto: String
+  quantity: Int
+  orderId: String
+  affiliateId: String
+  affiliateSessionId: String
+  utmVariables: String
+  created: Date
+  expires: Date
+  addresses: [CartAddress]
+  nodeLicenseType: String
+}
+
+type CartTransaction {
+  userId: String
+  wp_id: String
+  status: String
+  currency: String
+  discountAmtUsd: String
+  totalUsd: String
+  totalCrypto: String
+  totalCryptoReceived: String
+  conversionRate: String
+  remainingCrypto: String
+  address: String
+  name: String
+  email: String
+  data: String
+  created: Date
+  productId: String
+  productName: String
+  quantity: Int
+  nodeLicenseType: String
+  memberId: String
+}
+
+type CartOrderStatusResponse {
+  success: String!
+  expires: String!
+  amtToPayUSD: String
+  amtToPayCrypto: String
+  amtToPayRemaining: String
+  message: String!
+  status: String!
+}
+
+type Query {
+  getAllCartAddressRequests: [CartAddressRequest]
+  getAllCartTransactions: [CartTransaction]
+  getUserCartTransactions: [CartTransaction]
+  getUserCartTransactions(productIds: [String]): [CartTransaction]
+  getCartOrderStatus(
+    orderId: String!
+    orderType: String!
+    coinSymbol: String!
+  ): CartOrderStatusResponse
+  getCartTransactionsHeaderReport(
+    startDate: Date!
+    endDate: Date!
+  ): CartTransactionsHeaderReportResponse!
+
+  getCartTransactionsDetailReport(
+    startDate: Date!
+    endDate: Date!
+  ): [CartTransactionsDetailReport!]!
+}
+
+type Mutation {
+  getCartAddress(
+    source:String! = "default"
+    coinSymbol: String!
+    orderId: String!
+    # This is currently a crypto amount.
+    # This value will be removed in the future when
+    # we finish testing and moving to a new version of the cart.
+    # we keep the current name instead of change it to amountCrypto
+    # to avoid any broke.
+    amount: String
+    affiliateId: String
+    affiliateSessionId: String
+    utmVariables: String
+    # The amount used will be in USD
+    amountUsd: String
+    #quantity > 0
+    quantity: Int! = 1
+    nodeLicenseType: String
+    productId: String
+    productName: String
+  ): CartAddressResponse!
+
+
+  sendCartTransaction(
+    source:String! = "default"
+    walletPassword: String!
+    coinSymbol: String!
+    orderId: String!
+    amount: String
+    amountUsd: String
+    quantity: Int! = 1
+    affiliateId: String
+    affiliateSessionId: String
+    utmVariables: String
+    nodeLicenseType: String
+    productId: String 
+    productName: String
+  ): TxSendResponse!
+
+  submitPayment(
+    walletPassword: String!
+    coinSymbol: String!
+    orderId: String!
+  ): TxSendResponse!
+}

@@ -1,0 +1,19 @@
+type OwnershipHistory {
+  receivedReason: String
+  received: Date
+}
+
+type License {
+  _id: String!
+  licenseTypeId: String!
+  licenseType: LicenseType
+  userId: String!
+  created: Date!
+  inUse: Boolean!
+  ownershipHistory: [OwnershipHistory]
+}
+
+type Query {
+  getLicenses(type: String): [License]!
+  getUnhashedLicenses(type: String): [License]!
+}

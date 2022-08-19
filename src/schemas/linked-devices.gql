@@ -1,0 +1,20 @@
+input LinkedDeviceInput {
+  SerialNumber: String!
+  DeviceType: String!
+}
+
+type LinkedDevice {
+  UserId: String!
+  SerialNumber: String!
+  DeviceType: String!
+  Created: Date!
+  Removed: Date
+}
+
+type Query {
+  getLinkedDevices: [LinkedDevice]!
+}
+
+type Mutation {
+  addLinkedDevice(device: LinkedDeviceInput): MutationResponse!
+}

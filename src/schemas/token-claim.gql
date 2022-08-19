@@ -1,0 +1,39 @@
+input TokenToClaim {
+  token: String!
+  claimType: String!
+  quantity: Float!
+}
+
+type UnclaimedToken {
+  token: String!
+  name: String!
+  type: String!
+  image: String!
+  quantity: Float!
+  feeType: String!
+  claimType: String!
+}
+
+type ClaimQuote {
+  galaMintEthFee: Float!
+  galaTransferEthFee: Float!
+  itemMintEthFee: Float!
+  itemTransferEthFee: Float!
+  itemTransferAdditionalTokenEthFee: Float!
+  itemTransferMaxTokensPerTransaction: Int!
+}
+
+type Query {
+  unclaimedTokens: [UnclaimedToken!]!
+  claimQuote: ClaimQuote!
+  hasUnseenFulfilledClaims(markAsSeen: Boolean): Boolean!
+}
+
+type Mutation {
+  markClaimsAsSeen: Boolean!
+  claimTokens(
+    claimFee: Float!
+    tokens: [TokenToClaim!]!
+    walletPassword: String!
+  ): MutationResponse
+}

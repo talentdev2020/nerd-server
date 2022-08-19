@@ -1,0 +1,51 @@
+# =================CartTransactionsHeaderReport==================
+input multiBrandGetCartTransactionsHeaderReportInput {
+  brand: BrandsEnum
+  startDate: Date!
+  endDate: Date!
+}
+
+union CartTransactionsHeaderReportOrError =
+    CartTransactionsHeaderReportResponse
+  | ErrorResponse
+
+type multiBrandGetCartTransactionsHeaderReportResponse {
+  brand: BrandsEnum!
+  headerReportOrError: CartTransactionsHeaderReportOrError!
+}
+# =================End cartTransactionsHeaderReport==================
+# =================CartTransactionsDetailReport==================
+type CartTransactionsDetailReportResponse {
+  cartTransactions: [CartTransactionsDetailReport!]!
+}
+
+input MultiBrandDateRangeInput {
+  brand: BrandsEnum
+  startDate: Date!
+  endDate: Date!
+}
+
+union CartTransactionsDetailReportOrError =
+    CartTransactionsDetailReportResponse
+  | ErrorResponse
+
+type multiBrandGetCartTransactionsDetailReportResponse {
+  brand: BrandsEnum!
+  detailReportOrError: CartTransactionsDetailReportOrError!
+}
+# =================End CartTransactionsDetailReport==================
+
+# ==================== Queries ============================================
+type Query {
+  # Do not set brand in one array item to get all the remaining
+  # brands not listed in the array, with the specified range of dates
+  multiBrandGetCartTransactionsHeaderReport(
+    brandList: [multiBrandGetCartTransactionsHeaderReportInput!]!
+  ): [multiBrandGetCartTransactionsHeaderReportResponse!]!
+
+  # Do not set brand in one array item to get all the remaining
+  # brands not listed in the array, with the specified range of dates
+  multiBrandGetCartTransactionsDetailReport(
+    brandList: [MultiBrandDateRangeInput!]!
+  ): [multiBrandGetCartTransactionsDetailReportResponse!]!
+}

@@ -1,0 +1,53 @@
+type ShareOption {
+  backgroundColor: String!
+  backgroundColorNew: String!
+  icon: String!
+  accentColor: String!
+  textColor: String!
+  # Portion of fee that goes to referrer
+  referrerReward: Int!
+  # Portion of fee that goes to company.
+  companyFee: Int!
+  # Green, codex, winx etc
+  rewardCurrency: String!
+  # Amount of reward: i.e 100 (insert currency here)
+  rewardAmount: Int!
+  # How much a user needs for a balance in USD to qualify.
+  userBalanceThreshold: Int!
+  upgradeBenefits: [String!]!
+  basicWalletBenefits: [String!]!
+  upgradeAccountName: String!
+}
+
+type ShareConfig {
+  # If not activated, do they have enough to activate
+  btcBalanceConfirmed: String
+  # If not activated, do they have a qualifying pending transaction
+  btcBalancePending: String
+  # Bitly share url
+  shareUrl: String
+  # Number of shares that were successfully activated.
+  activatedShares: Int!
+  earnedShares: Int!
+  shareOptions: [ShareOption!]!
+  unactivatedShareOptions: [ShareOption!]!
+}
+
+type ReferrerName {
+  firstName: String!
+  lastName: String!
+}
+
+type Query {
+  # Get all available reward options
+  shareConfig: ShareConfig!
+}
+
+type Mutation {
+  logClick(referredBy: String): ReferrerName!
+  shareActivate(
+    walletPassword: String
+    rewardType: String!
+    orderContext: OrderContext
+  ): TxSendResponse!
+}

@@ -1,0 +1,24 @@
+type NodeProduct {
+  invoiceAddress: String!
+  name: String!
+  price: Int!
+}
+
+type GameItemProduct {
+  invoiceAddress: String!
+  price: String!
+  basePrice: String!
+  baseId: String
+  name: String!
+  description: String!
+  image: String!
+  game: String!
+  coin: String!
+  rarity: GameItemRarity
+  qtyLeft: Int
+}
+
+type Query {
+  gameItemProducts(game: String): [GameItemProduct!]!
+  nodeProduct: NodeProduct!
+}

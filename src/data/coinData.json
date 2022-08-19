@@ -1,0 +1,599 @@
+{
+  "BTC": {
+    "imageUrl": "https://cryptocompare.com/media/37746251/btc.png"
+  },
+  "ETH": {
+    "imageUrl": "https://cryptocompare.com/media/37746238/eth.png"
+  },
+  "XRP": {
+    "imageUrl": "https://cryptocompare.com/media/38553096/xrp.png"
+  },
+  "BCH": {
+    "imageUrl": "https://cryptocompare.com/media/37746245/bch.png"
+  },
+  "LTC": {
+    "imageUrl": "https://cryptocompare.com/media/37746243/ltc.png"
+  },
+  "ADA": {
+    "imageUrl": "https://cryptocompare.com/media/37746235/ada.png"
+  },
+  "GALA": {
+    "imageUrl": "https://cryptocompare.com/media/39500762/gala.png"
+  },
+  "MIOTA": {
+    "imageUrl": "https://cryptocompare.com/media/38553696/miota.png"
+  },
+  "DASH": {
+    "imageUrl": "https://cryptocompare.com/media/37746893/dash.png"
+  },
+  "XEM": {
+    "imageUrl": "https://cryptocompare.com/media/37747011/xem.png"
+  },
+  "XMR": {
+    "imageUrl": "https://cryptocompare.com/media/37746883/xmr.png"
+  },
+  "EOS": {
+    "imageUrl": "https://cryptocompare.com/media/37746349/eos.png"
+  },
+  "BTG": {
+    "imageUrl": "https://cryptocompare.com/media/37747569/btg.png"
+  },
+  "NEO": {
+    "imageUrl": "https://cryptocompare.com/media/37746892/neo.png"
+  },
+  "QTUM": {
+    "imageUrl": "https://cryptocompare.com/media/37746863/qtum.png"
+  },
+  "XLM": {
+    "imageUrl": "https://cryptocompare.com/media/37746346/xlm.png"
+  },
+  "ETC": {
+    "imageUrl": "https://cryptocompare.com/media/37746862/etc.png"
+  },
+  "LSK": {
+    "imageUrl": "https://cryptocompare.com/media/37747050/lsk.png"
+  },
+  "TRX": {
+    "imageUrl": "https://cryptocompare.com/media/37746879/trx.png"
+  },
+  "XVG": {
+    "imageUrl": "https://cryptocompare.com/media/37747677/xvg.png"
+  },
+  "ICX": {
+    "imageUrl": "https://cryptocompare.com/media/37747580/icx.png"
+  },
+  "ZEC": {
+    "imageUrl": "https://cryptocompare.com/media/37746899/zec.png"
+  },
+  "ARDR": {
+    "imageUrl": "https://cryptocompare.com/media/37746964/ardr.png"
+  },
+  "OMG": {
+    "imageUrl": "https://cryptocompare.com/media/37071946/omg.png"
+  },
+  "BTS": {
+    "imageUrl": "https://cryptocompare.com/media/37746917/bts.png"
+  },
+  "HSR": {
+    "imageUrl": "https://cryptocompare.com/media/35309345/no-image.png"
+  },
+  "USDT": {
+    "imageUrl": "https://cryptocompare.com/media/37746338/usdt.png"
+  },
+  "PPT": {
+    "imageUrl": "https://cryptocompare.com/media/39500842/ppt.png"
+  },
+  "WAVES": {
+    "imageUrl": "https://cryptocompare.com/media/37746257/waves.png"
+  },
+  "STRAT": {
+    "imageUrl": "https://cryptocompare.com/media/35309345/no-image.png"
+  },
+  "NXT": {
+    "imageUrl": "https://cryptocompare.com/media/38553729/nxt.png"
+  },
+  "BCN": {
+    "imageUrl": "https://cryptocompare.com/media/12318404/bcn.png"
+  },
+  "DOGE": {
+    "imageUrl": "https://cryptocompare.com/media/37746339/doge.png"
+  },
+  "KMD": {
+    "imageUrl": "https://cryptocompare.com/media/37746989/kmd.png"
+  },
+  "BNB": {
+    "imageUrl": "https://cryptocompare.com/media/37746880/bnb.png"
+  },
+  "SALT": {
+    "imageUrl": "https://cryptocompare.com/media/9350744/salt.jpg"
+  },
+  "SC": {
+    "imageUrl": "https://cryptocompare.com/media/38553126/sc.png"
+  },
+  "REP": {
+    "imageUrl": "https://cryptocompare.com/media/37747024/rep.png"
+  },
+  "STEEM": {
+    "imageUrl": "https://cryptocompare.com/media/350907/steem.png"
+  },
+  "GNT": {
+    "imageUrl": "https://cryptocompare.com/media/39109118/gnt.png"
+  },
+  "ARK": {
+    "imageUrl": "https://cryptocompare.com/media/37746978/ark.png"
+  },
+  "VERI": {
+    "imageUrl": "https://cryptocompare.com/media/1383562/veri.png"
+  },
+  "PIVX": {
+    "imageUrl": "https://cryptocompare.com/media/37459237/pivx.png"
+  },
+  "MONA": {
+    "imageUrl": "https://cryptocompare.com/media/35309574/mona.png"
+  },
+  "DCR": {
+    "imageUrl": "https://cryptocompare.com/media/1382607/decred.png"
+  },
+  "DGB": {
+    "imageUrl": "https://cryptocompare.com/media/38553121/dgb.png"
+  },
+  "VET": {
+    "imageUrl": "https://cryptocompare.com/media/12318129/ven.png"
+  },
+  "SNT": {
+    "imageUrl": "https://cryptocompare.com/media/37747590/snt.png"
+  },
+  "XZC": {
+    "imageUrl": "https://cryptocompare.com/media/35309345/no-image.png"
+  },
+  "MAID": {
+    "imageUrl": "https://cryptocompare.com/media/352247/maid.png"
+  },
+  "SYS": {
+    "imageUrl": "https://cryptocompare.com/media/39456587/sys.png"
+  },
+  "ETN": {
+    "imageUrl": "https://cryptocompare.com/media/38553124/etn.png"
+  },
+  "GBYTE": {
+    "imageUrl": "https://cryptocompare.com/media/35650360/gbyte.png"
+  },
+  "PAY": {
+    "imageUrl": "https://cryptocompare.com/media/1383687/pay.png"
+  },
+  "BAT": {
+    "imageUrl": "https://cryptocompare.com/media/37746356/bat.png"
+  },
+  "BTM": {
+    "imageUrl": "https://cryptocompare.com/media/38553769/btm.png"
+  },
+  "WAX": {
+    "imageUrl": "https://cryptocompare.com/media/35309345/no-image.png"
+  },
+  "FCT": {
+    "imageUrl": "https://cryptocompare.com/media/1382863/fct1.png"
+  },
+  "SAN": {
+    "imageUrl": "https://cryptocompare.com/media/1383730/san.png"
+  },
+  "BTCD": {
+    "imageUrl": "https://cryptocompare.com/media/19630/btcd_1.png"
+  },
+  "AE": {
+    "imageUrl": "https://cryptocompare.com/media/37747087/ae.png"
+  },
+  "RDD": {
+    "imageUrl": "https://cryptocompare.com/media/38553369/rdd.png"
+  },
+  "QASH": {
+    "imageUrl": "https://cryptocompare.com/media/35651689/qash.png"
+  },
+  "DGD": {
+    "imageUrl": "https://cryptocompare.com/media/37305723/dgd.png"
+  },
+  "ZRX": {
+    "imageUrl": "https://cryptocompare.com/media/1383799/zrx.png"
+  },
+  "KNC": {
+    "imageUrl": "https://cryptocompare.com/media/37746773/kyber-network-trans.png"
+  },
+  "POWR": {
+    "imageUrl": "https://cryptocompare.com/media/37746985/powr.png"
+  },
+  "CVC": {
+    "imageUrl": "https://cryptocompare.com/media/1383611/cvc.png"
+  },
+  "AION": {
+    "imageUrl": "https://cryptocompare.com/media/37746924/aion.png"
+  },
+  "VTC": {
+    "imageUrl": "https://cryptocompare.com/media/37747963/vtc.png"
+  },
+  "WTC": {
+    "imageUrl": "https://cryptocompare.com/media/37746952/wtc.png"
+  },
+  "DENT": {
+    "imageUrl": "https://cryptocompare.com/media/37746692/dent.png"
+  },
+  "GAS": {
+    "imageUrl": "https://cryptocompare.com/media/37747638/gas.png"
+  },
+  "GAME": {
+    "imageUrl": "https://cryptocompare.com/media/37746668/game.png"
+  },
+  "ELF": {
+    "imageUrl": "https://cryptocompare.com/media/37746930/elf.png"
+  },
+  "NAV": {
+    "imageUrl": "https://cryptocompare.com/media/39500945/nav.png"
+  },
+  "SUB": {
+    "imageUrl": "https://cryptocompare.com/media/39198305/sub.png"
+  },
+  "FUN": {
+    "imageUrl": "https://cryptocompare.com/media/39500876/fun.png"
+  },
+  "SKY": {
+    "imageUrl": "https://cryptocompare.com/media/37746942/sky.png"
+  },
+  "GXS": {
+    "imageUrl": "https://cryptocompare.com/media/35309345/no-image.png"
+  },
+  "ICN": {
+    "imageUrl": "https://cryptocompare.com/media/351400/icn.png"
+  },
+  "GNO": {
+    "imageUrl": "https://cryptocompare.com/media/37747765/gno.png"
+  },
+  "CNX": {
+    "imageUrl": "https://cryptocompare.com/media/11417632/cnx.png"
+  },
+  "DRGN": {
+    "imageUrl": "https://cryptocompare.com/media/16746490/drgn.png"
+  },
+  "ENG": {
+    "imageUrl": "https://cryptocompare.com/media/37748031/eng.png"
+  },
+  "KCS": {
+    "imageUrl": "https://cryptocompare.com/media/37747086/kcs.png"
+  },
+  "REQ": {
+    "imageUrl": "https://cryptocompare.com/media/39198095/req.png"
+  },
+  "MCO": {
+    "imageUrl": "https://cryptocompare.com/media/34478435/mco.png"
+  },
+  "BNT": {
+    "imageUrl": "https://cryptocompare.com/media/37747631/bnt.png"
+  },
+  "RDN": {
+    "imageUrl": "https://cryptocompare.com/media/37621859/rdn.png"
+  },
+  "ETHOS": {
+    "imageUrl": "https://cryptocompare.com/media/39334570/ethos.png"
+  },
+  "EMC2": {
+    "imageUrl": "https://cryptocompare.com/media/37459315/emc2.png"
+  },
+  "BAY": {
+    "imageUrl": "https://cryptocompare.com/media/1383137/bay1.png"
+  },
+  "EDG": {
+    "imageUrl": "https://cryptocompare.com/media/1382799/edg.jpg"
+  },
+  "MANA": {
+    "imageUrl": "https://cryptocompare.com/media/37746665/mana.png"
+  },
+  "ADX": {
+    "imageUrl": "https://cryptocompare.com/media/1383667/adx1.png"
+  },
+  "RCN": {
+    "imageUrl": "https://cryptocompare.com/media/39500752/rcn.png"
+  },
+  "BLOCK": {
+    "imageUrl": "https://cryptocompare.com/media/37746139/block.png"
+  },
+  "LINK": {
+    "imageUrl": "https://cryptocompare.com/media/37746242/link.png"
+  },
+  "NXS": {
+    "imageUrl": "https://cryptocompare.com/media/38553695/nxs.png"
+  },
+  "RISE": {
+    "imageUrl": "https://cryptocompare.com/media/351059/rise.png"
+  },
+  "PART": {
+    "imageUrl": "https://cryptocompare.com/media/37746006/part.png"
+  },
+  "DCN": {
+    "imageUrl": "https://cryptocompare.com/media/1383999/dcn.png"
+  },
+  "UBQ": {
+    "imageUrl": "https://cryptocompare.com/media/1382441/ubq.png"
+  },
+  "SMART": {
+    "imageUrl": "https://cryptocompare.com/media/34477887/smart2.png"
+  },
+  "STORJ": {
+    "imageUrl": "https://cryptocompare.com/media/38553125/storj.png"
+  },
+  "PPP": {
+    "imageUrl": "https://cryptocompare.com/media/12318216/ppp.png"
+  },
+  "MTL": {
+    "imageUrl": "https://cryptocompare.com/media/37746820/mtl.png"
+  },
+  "CTR": {
+    "imageUrl": "https://cryptocompare.com/media/1384029/ctr.png"
+  },
+  "TNB": {
+    "imageUrl": "https://cryptocompare.com/media/37747798/tnb.png"
+  },
+  "DATA": {
+    "imageUrl": "https://cryptocompare.com/media/37747082/data.png"
+  },
+  "XDN": {
+    "imageUrl": "https://cryptocompare.com/media/37072128/xdn.png"
+  },
+  "AGRS": {
+    "imageUrl": "https://cryptocompare.com/media/35650707/agrs.png"
+  },
+  "ZEN": {
+    "imageUrl": "https://cryptocompare.com/media/37747044/zen.png"
+  },
+  "CLOAK": {
+    "imageUrl": "https://cryptocompare.com/media/19994/cloak.png"
+  },
+  "RHOC": {
+    "imageUrl": "https://cryptocompare.com/media/16746544/rhoc.png"
+  },
+  "R": {
+    "imageUrl": "https://cryptocompare.com/media/35309345/no-image.png"
+  },
+  "ETP": {
+    "imageUrl": "https://cryptocompare.com/media/39198109/etp.png"
+  },
+  "XAS": {
+    "imageUrl": "https://cryptocompare.com/media/1383997/xas.png"
+  },
+  "PPC": {
+    "imageUrl": "https://cryptocompare.com/media/19864/peercoin-logo.png"
+  },
+  "SNM": {
+    "imageUrl": "https://cryptocompare.com/media/1383564/snm.png"
+  },
+  "ENJ": {
+    "imageUrl": "https://cryptocompare.com/media/37747010/enj.png"
+  },
+  "EMC": {
+    "imageUrl": "https://cryptocompare.com/media/37748030/emc.png"
+  },
+  "INK": {
+    "imageUrl": "https://cryptocompare.com/media/20780781/ink.png"
+  },
+  "SNGLS": {
+    "imageUrl": "https://cryptocompare.com/media/37747842/sngls.png"
+  },
+  "ANT": {
+    "imageUrl": "https://cryptocompare.com/media/37746969/ant.png"
+  },
+  "TRIG": {
+    "imageUrl": "https://cryptocompare.com/media/351489/trg.png"
+  },
+  "GRS": {
+    "imageUrl": "https://cryptocompare.com/media/37746990/grs.png"
+  },
+  "QRL": {
+    "imageUrl": "https://cryptocompare.com/media/34478071/qrl.png"
+  },
+  "ACT": {
+    "imageUrl": "https://cryptocompare.com/media/39500803/act.png"
+  },
+  "DCT": {
+    "imageUrl": "https://cryptocompare.com/media/351389/dct.png"
+  },
+  "BRD": {
+    "imageUrl": "https://cryptocompare.com/media/20780589/brd.png"
+  },
+  "KIN": {
+    "imageUrl": "https://cryptocompare.com/media/37747913/kin.png"
+  },
+  "WINGS": {
+    "imageUrl": "https://cryptocompare.com/media/1382758/1wings.png"
+  },
+  "QSP": {
+    "imageUrl": "https://cryptocompare.com/media/15887408/qsp.png"
+  },
+  "WGR": {
+    "imageUrl": "https://cryptocompare.com/media/37305667/wgr.png"
+  },
+  "STORM": {
+    "imageUrl": "https://cryptocompare.com/media/1383803/storm.jpg"
+  },
+  "LRC": {
+    "imageUrl": "https://cryptocompare.com/media/36798698/lrc-logo.png"
+  },
+  "VIA": {
+    "imageUrl": "https://cryptocompare.com/media/37747107/via.png"
+  },
+  "XBY": {
+    "imageUrl": "https://cryptocompare.com/media/38553756/xby.png"
+  },
+  "CFI": {
+    "imageUrl": "https://cryptocompare.com/media/1383567/cfi.png"
+  },
+  "MGO": {
+    "imageUrl": "https://cryptocompare.com/media/1382798/mgo.png"
+  },
+  "UNITY": {
+    "imageUrl": "https://cryptocompare.com/media/350935/unity_1.png"
+  },
+  "DPY": {
+    "imageUrl": "https://cryptocompare.com/media/34478363/delphy.png"
+  },
+  "HMQ": {
+    "imageUrl": "https://cryptocompare.com/media/1383174/hmq.png"
+  },
+  "1ST": {
+    "imageUrl": "https://cryptocompare.com/media/351524/1st.png"
+  },
+  "ATM": {
+    "imageUrl": "https://cryptocompare.com/media/37747212/atm.png"
+  },
+  "PURA": {
+    "imageUrl": "https://cryptocompare.com/media/14913533/pura.png"
+  },
+  "NEBL": {
+    "imageUrl": "https://cryptocompare.com/media/38553728/nebl.png"
+  },
+  "RLC": {
+    "imageUrl": "https://cryptocompare.com/media/37747617/rlc.png"
+  },
+  "AMB": {
+    "imageUrl": "https://cryptocompare.com/media/39198102/amb.png"
+  },
+  "LBC": {
+    "imageUrl": "https://cryptocompare.com/media/351211/lbc.png"
+  },
+  "WABI": {
+    "imageUrl": "https://cryptocompare.com/media/37747127/wabi.png"
+  },
+  "LEND": {
+    "imageUrl": "https://cryptocompare.com/media/37071994/aave.png"
+  },
+  "XP": {
+    "imageUrl": "https://cryptocompare.com/media/12318134/xp.png"
+  },
+  "SLS": {
+    "imageUrl": "https://cryptocompare.com/media/37748037/sls.png"
+  },
+  "XCP": {
+    "imageUrl": "https://cryptocompare.com/media/19960/xcp.png"
+  },
+  "EDO": {
+    "imageUrl": "https://cryptocompare.com/media/35309345/no-image.png"
+  },
+  "VIB": {
+    "imageUrl": "https://cryptocompare.com/media/1383893/vib.png"
+  },
+  "THC": {
+    "imageUrl": "https://cryptocompare.com/media/35651244/thc.png"
+  },
+  "CMT": {
+    "imageUrl": "https://cryptocompare.com/media/37747166/cmt.png"
+  },
+  "CND": {
+    "imageUrl": "https://cryptocompare.com/media/37747797/cnd.png"
+  },
+  "SIB": {
+    "imageUrl": "https://cryptocompare.com/media/36640228/sibcoin.jpg"
+  },
+  "ZCL": {
+    "imageUrl": "https://cryptocompare.com/media/35650715/zcl.png"
+  },
+  "PLR": {
+    "imageUrl": "https://cryptocompare.com/media/37747742/plr.png"
+  },
+  "PEPECASH": {
+    "imageUrl": "https://cryptocompare.com/media/1382397/pepecash.png"
+  },
+  "MLN": {
+    "imageUrl": "https://cryptocompare.com/media/39500853/mln.png"
+  },
+  "FTC": {
+    "imageUrl": "https://cryptocompare.com/media/19718/ftc.png"
+  },
+  "XWC": {
+    "imageUrl": "https://cryptocompare.com/media/37747949/xwc.png"
+  },
+  "BLK": {
+    "imageUrl": "https://cryptocompare.com/media/351795/blk.png"
+  },
+  "POT": {
+    "imageUrl": "https://cryptocompare.com/media/35651003/pot.png"
+  },
+  "SHIFT": {
+    "imageUrl": "https://cryptocompare.com/media/1382125/shift.png"
+  },
+  "DNT": {
+    "imageUrl": "https://cryptocompare.com/media/37746973/dnt.png"
+  },
+  "GUP": {
+    "imageUrl": "https://cryptocompare.com/media/1383107/gup.png"
+  },
+  "NLG": {
+    "imageUrl": "https://cryptocompare.com/media/39500888/nlg.png"
+  },
+  "YOYOW": {
+    "imageUrl": "https://cryptocompare.com/media/12318178/yoyow.png"
+  },
+  "FUEL": {
+    "imageUrl": "https://cryptocompare.com/media/11999072/fuel.png"
+  },
+  "ITC": {
+    "imageUrl": "https://cryptocompare.com/media/39500909/itc.png"
+  },
+  "COB": {
+    "imageUrl": "https://cryptocompare.com/media/9350700/cobin.png"
+  },
+  "POE": {
+    "imageUrl": "https://cryptocompare.com/media/1383828/poe.png"
+  },
+  "MOD": {
+    "imageUrl": "https://cryptocompare.com/media/37746159/mod.png"
+  },
+  "OTN": {
+    "imageUrl": "https://cryptocompare.com/media/14913453/otn.png"
+  },
+  "MER": {
+    "imageUrl": "https://cryptocompare.com/media/37747682/mer.png"
+  },
+  "LKK": {
+    "imageUrl": "https://cryptocompare.com/media/1383553/lkk.png"
+  },
+  "MTH": {
+    "imageUrl": "https://cryptocompare.com/media/39500938/mth.png"
+  },
+  "TNT": {
+    "imageUrl": "https://cryptocompare.com/media/1383800/tnt.png"
+  },
+  "NMC": {
+    "imageUrl": "https://cryptocompare.com/media/19830/nmc.png"
+  },
+  "AST": {
+    "imageUrl": "https://cryptocompare.com/media/39500861/ast.png"
+  },
+  "FAIR": {
+    "imageUrl": "https://cryptocompare.com/media/35650761/fair.png"
+  },
+  "VEE": {
+    "imageUrl": "https://cryptocompare.com/media/39198101/vee.png"
+  },
+  "ION": {
+    "imageUrl": "https://cryptocompare.com/media/350933/ion.jpg"
+  },
+  "EMB": {
+    "imageUrl": "https://cryptocompare.com/media/37747424/emb1.png"
+  },
+  "CDT": {
+    "imageUrl": "https://cryptocompare.com/media/35309345/no-image.png"
+  },
+  "AEON": {
+    "imageUrl": "https://cryptocompare.com/media/37746140/aeon.png"
+  },
+  "IOC": {
+    "imageUrl": "https://cryptocompare.com/media/20042/ioc.png"
+  },
+  "MNX": {
+    "imageUrl": "https://cryptocompare.com/media/35650706/mnx.png"
+  },
+  "TRST": {
+    "imageUrl": "https://cryptocompare.com/media/1381975/trst.png"
+  },
+  "CRW": {
+    "imageUrl": "https://cryptocompare.com/media/1383378/crw1.png"
+  },
+  "BITCNY": {
+    "imageUrl": "https://cryptocompare.com/media/35650719/bitcny.png"
+  }
+}

@@ -1,0 +1,43 @@
+type LogAffiliateResponse {
+  data: String
+  error: String
+}
+
+type AffiliateLink {
+  id: String!
+  pageUrl: String!
+  name: String!
+  brand: String!
+}
+
+type AffiliateLinkUser {
+  id: String
+  userId: String
+  affiliateLinkId: String
+  bitlyLink: String
+  longLink: String
+  created: Date
+}
+
+type Query {
+  logAffiliateVisit(
+    affiliateId: String!
+    sessionId: String!
+    url: String!
+  ): LogAffiliateResponse!
+  affiliateLink(affiliateId: String): AffiliateLink!
+  getUserAffiliateLinks: [AffiliateLinkUser]!
+}
+
+type Mutation {
+  assignReferredBy(
+    affiliateId: String!
+    sessionId: String!
+  ): LogAffiliateResponse!
+  createAffiliateLink(
+    pageUrl: String!
+    name: String!
+    brand: String!
+  ): AffiliateLink!
+  addAffiliateLinkToUser(affiliateLinkId: String!): AffiliateLinkUser!
+}

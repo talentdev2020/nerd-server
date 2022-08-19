@@ -1,0 +1,52 @@
+input IamAuthenticateInput {
+  username: String!
+  password: String!
+  context: JSON
+}
+
+input IamAuthenticateWithTokenInput {
+  token: String!
+}
+
+type IamAuthentication {
+  type: String # bearer
+  token: String # typically
+}
+
+type IamAuthenticateResponse {
+  success: Boolean!
+  message: String!
+  principal: IamPrincipal
+  authentication: IamAuthentication
+  metadata: JSON
+}
+
+type IamPrincipal {
+  id: ID!
+  uid: ID!
+  username: String
+  email: String
+  displayName: String
+  firstName: String
+  lastName: String
+  role: String
+  photoUrl: String
+  permissions: [String]
+}
+
+type Iam {
+  principal: IamPrincipal
+}
+
+type IamOps {
+  authenticate(input: IamAuthenticateInput): IamAuthenticateResponse
+  authenticate_with_token(input: IamAuthenticateWithTokenInput): IamAuthenticateResponse
+}
+
+extend type Query {
+  iam: Iam
+}
+
+extend type Mutation {
+  iam: IamOps
+}

@@ -1,0 +1,13 @@
+type AwsSignature {
+  signedRequest: String!
+  filename: String!
+  url: String!
+}
+input AwsInput {
+  fileName: String!
+  fileType: String!
+}
+
+type Query {
+  getS3Signature(pictureInfo: AwsInput!): AwsSignature!
+}

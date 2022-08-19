@@ -1,0 +1,51 @@
+input CreateRedemptionCode {
+  code: String!
+  isActive: Boolean!
+  redeemableBy: String
+  value: Float
+  description: String
+}
+
+input UpdateRedemptionCode {
+  code: String!
+  isActive: Boolean!
+}
+
+type UserCodeRedemption {
+  code: String!
+  userId: String!
+  created: Date
+  updated: Date
+}
+
+type RedemptionCode {
+  code: String!
+  isActive: Boolean!
+  redeemableBy: String
+  value: Float
+  description: String
+  created: Date
+  updated: Date
+}
+
+type UserRedemptionCode {
+  code: String!
+  isActive: Boolean!
+  redeemableBy: String
+  value: Float
+  description: String
+  created: Date
+  updated: Date
+  redemptions: [UserCodeRedemption]
+}
+
+type Query {
+  getRedemptionCodes: [RedemptionCode!]
+  getRedemptionCodesByUser: [UserRedemptionCode]
+}
+
+type Mutation {
+  createRedemptionCode(createRedemptionCode: CreateRedemptionCode): RedemptionCode!
+  updateRedemptioncode(updateRedemptionCode: UpdateRedemptionCode): RedemptionCode!
+  redeemCode(code: String!): MutationResponse!
+}
