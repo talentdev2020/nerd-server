@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "ts-node",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "node",
+            "runtimeArgs": [
+              "--nolazy",
+              "-r",
+              "ts-node/register/transpile-only",
+              "-r",
+              "${workspaceFolder}/node_modules/tsconfig-paths/register"
+            ],
+            "args": ["src/index"],      
+            "cwd": "${workspaceRoot}",
+            "internalConsoleOptions": "openOnSessionStart",
+            "skipFiles": ["<node_internals>/**", "node_modules/**"]
+          }
+    ]
+}
