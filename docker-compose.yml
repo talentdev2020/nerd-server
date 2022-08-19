@@ -2,11 +2,12 @@ version: '3.4'
 
 services:
   walletserver:
-    image: walletserver
+    image: wallet-server
+    
     build:
       context: .
       dockerfile: ./Dockerfile
-      
+
     environment:
       NODE_ENV: production
 
