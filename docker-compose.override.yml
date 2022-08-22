@@ -1,0 +1,65 @@
+version: '3.4'
+
+services:
+  walletserver:
+    environment:
+      # LOCAL DEV ONLY
+      - DEBUG=true
+      - LOCAL_SECRETS=true
+      - LOG_LEVEL=debug
+      
+      # SHARED
+      - NODE_ENV=development
+      - API_KEY_SERVICE_URL=https://stage0.key.connectblockchain.net
+      - AWS_DEFAULT_REGION=us-west-2
+      - IS_STAGE=true
+      - MONGODB_URI_CONNECT=mongodb://user-connect-stage:9mf3gbXjZhIy1lq8DggL@staging-shard-00-00-wskil.mongodb.net:27017,staging-shard-00-01-wskil.mongodb.net:27017,staging-shard-00-02-wskil.mongodb.net:27017/connect-stage?ssl=true&replicaSet=Staging-shard-0&authSource=admin&retryWrites=true&w=majority
+     
+      #== BRANDS ===#
+      #Connect
+      - APP_HOSTNAME=stage0.walletsrv.connectunited.com
+      - BLOCKFUNNELS_URL=stage0.connectblockchain.net
+      - BRAND=connect
+
+      #Green
+      # - APP_HOSTNAME=stage0.walletsrv.setpowerfree.com
+      # - BLOCKFUNNELS_URL=stage0.setpowerfree.com
+      # - BRAND=green
+      # - MONGODB_URI_GREEN=mongodb://user-green-stage:WT968tKNpKfNsLuWtDdR@staging-shard-00-00-bupex.mongodb.net:27017,staging-shard-00-01-bupex.mongodb.net:27017,staging-shard-00-02-bupex.mongodb.net:27017/green-stage?ssl=true&replicaSet=Staging-shard-0&authSource=admin&retryWrites=true&w=majority
+
+      #CODEX
+      #- APP_HOSTNAME=stage0.walletsrv.codexunited.com
+      #- BLOCKFUNNELS_URL=stage0.codexunited.com
+      #- BRAND=codex
+      #- MONGODB_URI_CODEX=mongodb://user-codex-united-stage:EEwcw9cFd3YC9f4i14s3@staging-shard-00-00-epj95.mongodb.net:27017,staging-shard-00-01-epj95.mongodb.net:27017,staging-shard-00-02-epj95.mongodb.net:27017/codex-united-stage?ssl=true&replicaSet=Staging-shard-0&authSource=admin&retryWrites=true&w=majority
+    
+      #ELEMENT
+      #- APP_HOSTNAME=stage0.walletsrv.elementunited.com
+      #- BLOCKFUNNELS_URL=stage0.elementunited.com
+      #- BRAND=element
+      #- MONGODB_URI_ELEMENT=mongodb+srv://user-digr-stage:2zm33aLNWZUzNIrP@staging.ixo0y.mongodb.net/digr?retryWrites=true&w=majority
+      
+      #GALVAN
+      #- APP_HOSTNAME=stage0.walletsrv.galvan.health
+      #- BLOCKFUNNELS_URL=stage0.galvan.health
+      #- BRAND=galvan
+      #- MONGODB_URI_GALVAN=mongodb+srv://user-blue-stage:xbB5e9CWbREclrTm@staging.wskil.mongodb.net/blue-stage?retryWrites=true&w=majority&authSource=admin&retryWrites=true&w=majority
+      
+      #GIVE
+      #- APP_HOSTNAME=stage0.walletsrv.giveblockchain.io
+      #- BLOCKFUNNELS_URL=stage0.giveblockchain.io
+      #- BRAND=give
+      #- MONGODB_URI_GIVE=mongodb://user-give-stage:jL8cNbEloMnx2F3w4F66@staging-shard-00-00-wpjwv.mongodb.net:27017,staging-shard-00-01-wpjwv.mongodb.net:27017,staging-shard-00-02-wpjwv.mongodb.net:27017/give-stage?ssl=true&replicaSet=Staging-shard-0&authSource=admin&retryWrites=true&w=majority
+      
+      #LIBERTY
+      #- APP_HOSTNAME=stage0.walletsrv.libertyblockchain.com
+      #- BLOCKFUNNELS_URL=stage0.libertyblockchain.com
+      #- BRAND=liberty
+      #- MONGODB_URI_LIBERTY=mongodb+srv://user-liberty-stage:1ck1CzzRQeodnv92@staging-epj95.mongodb.net/liberty-stage?ssl=true&authSource=admin&retryWrites=true&w=majority
+      
+      #SWITCH
+      # - APP_HOSTNAME=stage0.walletsrv.switchrewardcard.com
+      # - BLOCKFUNNELS_URL=stage0.switchrewardcard.com
+      # - BRAND=switch
+      # - MONGODB_URI_SWITCH=mongodb+srv://user-switch-stage:KewV1vOltBTvCDg3@staging-epj95.mongodb.net/switch-stage?ssl=true&authSource=admin&retryWrites=true&w=majority
+      
