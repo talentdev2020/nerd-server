@@ -44,7 +44,7 @@ class Controller {
       }
     
 
-      return res.json({ status, version });
+      return res.json({ status });
 
       // When something in the app is failing / taking too long etc, but the
       // application is still working for the most part you would return 200
