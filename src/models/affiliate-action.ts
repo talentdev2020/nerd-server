@@ -1,10 +1,10 @@
 import { Document, model, Schema } from 'mongoose';
 
-export interface IAffiliateAction extends Document {
-  affiliateId: string;
-  sessionId: string;
-  url: string;
-}
+// export interface IAffiliateAction extends Document {
+//   affiliateId: string;
+//   sessionId: string;
+//   url: string;
+// }
 
 export const affiliateActionSchema = new Schema(
   {
