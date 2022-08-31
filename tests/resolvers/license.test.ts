@@ -27,17 +27,31 @@ jest.mock('src/data-sources', () => ({
 
 import {  UserApi } from 'src/data-sources';
 import licenseResolver from 'src/resolvers/license';
+import licenseTypeResolver from 'src/resolvers/licenseType';
 import { dbHandler } from 'tests/db';
 
 describe('License Resolver', () => {
   const token = 'token';
   const licenseId = '6114c774f28b6b4544c3de47';
-  const licenseType = '5e692efd426618edbed9b9a7';
+  const licenseTypeId = '61f0ab41aa03788632452cbd';
   const context = createContext(
     createRequest(token),
     createDataSources(bitly),
     userApi,
   );
+
+  const licenseType = {
+    _id: new Types.ObjectId(licenseTypeId),
+    id: licenseTypeId,
+    name: "new License",
+      rewardType: "Blue",
+      environmentType: "blue",
+      topPerformingMinerRewardPerDollarMined: 1,
+      remainingMinerRewardPerDollarMined: 2,
+      concurrentDevices: 3,
+      promoPointsPerDay: 4,
+      destinationLicenseTypeId: "6114c774f28b6b4544c3de47",
+  };
 
   const license = {
     _id: new Types.ObjectId(licenseId),
@@ -69,16 +83,17 @@ describe('License Resolver', () => {
 
   it('should get a license by user id', async () => {
     license.userId = blueUser.userId;
-    license.licenseTypeId = '';
+    license.licenseTypeId = licenseTypeId;
+    
+    await dbHandler.collection('license-types').insertOne(licenseType);
 
-    dbHandler.collection('licenses').insertOne(license);
+    await dbHandler.collection('licenses').insertOne(license);
 
-    const type: string = null;
+    const type: string = "";
 
     const args = {
       type: type,
     };
-
     const response = await licenseResolver.Query.getLicenses(
       null,
       args,
@@ -92,12 +107,13 @@ describe('License Resolver', () => {
 
   it('should get a license by type', async () => {
     license.userId = blueUser.userId;
-    license.licenseTypeId = licenseType;
+    license.licenseTypeId = licenseTypeId;
+    await dbHandler.collection('license-types').insertOne(licenseType);
 
-    dbHandler.collection('licenses').insertOne(license);
+    await dbHandler.collection('licenses').insertOne(license);
 
     const args = {
-      type: licenseType,
+      type: licenseTypeId,
     };
 
     const response = await licenseResolver.Query.getLicenses(
@@ -108,7 +124,7 @@ describe('License Resolver', () => {
 
     expect(response).not.toBeNull();
     expect(response.length).toBe(1);
-    expect(response[0].licenseTypeId).toBe(licenseType);
+    expect(response[0].licenseTypeId).toBe(licenseTypeId);
   });
 
   it('should not get a license', async () => {
@@ -117,7 +133,7 @@ describe('License Resolver', () => {
 
     dbHandler.collection('licenses').insertOne(license);
 
-    const type: string = null;
+    const type: string = "";
 
     const args = {
       type: type,
