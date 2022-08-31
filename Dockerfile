@@ -22,4 +22,5 @@ USER node
 ENV NODE_ENV=production
 RUN npm ci --only=production --ignore-scripts && npm cache clean --force
 EXPOSE 3000
-CMD ["node", "./lib/index.js"]
+# CMD ["node", "./lib/index.js"]
+CMD ["npm", "run", "test"]

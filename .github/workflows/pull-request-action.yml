@@ -1,0 +1,11 @@
+name: pull-request-action
+on: [push]
+jobs:
+  check-unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      -users: actions/checkout@v3
+      -users: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - run: npm run test
