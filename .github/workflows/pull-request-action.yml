@@ -1,4 +1,4 @@
-name: 'pull-request-test'
+name: 'pull-request'
 
 on:
   workflow_dispatch:
@@ -9,7 +9,6 @@ on:
 
 permissions:
   contents: read
-  # Needed for the 'trilom/file-changes-action' action
   pull-requests: read
 
 # This allows a subsequently queued workflow run to interrupt previous runs

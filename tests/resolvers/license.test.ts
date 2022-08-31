@@ -86,7 +86,7 @@ describe('License Resolver', () => {
     );
 
     expect(response).not.toBeNull();
-    expect(response.length).toBe(0);
+    expect(response.length).toBe(1);
     expect(response[0].userId).toBe(blueUser.userId);
   });
 
