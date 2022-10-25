@@ -31,10 +31,10 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: ./docker
+          context: ../../
           file: ../../Dockerfile
           platforms: linux/amd64,linux/arm64,linux/386
           push: true
-          tags: ${GITHUB_REF##*/}
+          tags: splitbrain:${GITHUB_REF##*/}
           build-args: |
             BRANCH=${GITHUB_REF##*/}
