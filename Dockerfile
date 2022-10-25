@@ -1,5 +1,5 @@
 # base image contains the dependencies and application code
-FROM node:14-alpine AS base
+FROM node:16 AS base
 
 WORKDIR /opt/app
 ## install dependencies
