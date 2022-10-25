@@ -1,5 +1,5 @@
 # base image contains the dependencies and application code
-FROM node:16 AS base
+FROM node AS base
 
 WORKDIR /opt/app
 ## install dependencies
