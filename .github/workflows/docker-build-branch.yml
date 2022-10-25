@@ -32,7 +32,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ../../Dockerfile
+          file: ./Dockerfile
           platforms: linux/amd64,linux/arm64,linux/386
           push: true
           tags: splitbrain/dokuwiki:${{ env.BRANCH }}
