@@ -35,6 +35,6 @@ jobs:
           file: ../../Dockerfile
           platforms: linux/amd64,linux/arm64,linux/386
           push: true
-          tags: splitbrain/deb:${GITHUB_REF##*/}
+          tags: splitbrain/deb:test
           build-args: |
             BRANCH=${GITHUB_REF##*/}
